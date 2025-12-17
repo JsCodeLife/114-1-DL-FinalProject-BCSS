@@ -1,0 +1,69 @@
+# 1. Python & System Basics
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# 2. Dataset (絕對不能上傳)
+# 忽略特定的資料集資料夾
+BCSS/
+BCSS_512/
+BCSS_dataset/
+data/
+datasets/
+
+# 忽略原始的大型壓縮檔
+*.zip
+*.tar
+*.tar.gz
+*.rar
+
+# 忽略所有圖片檔案 (避免誤傳 patches)
+# 如果有 README 需要用的圖片，請建立一個 assets 資料夾並用 !assets/ 例外排除
+*.png
+*.jpg
+*.jpeg
+*.tiff
+*.svs
+!assets/*.png
+!assets/*.jpg
+
+# 3. Deep Learning Outputs (訓練產出)
+# PyTorch 模型權重
+*.pth
+*.pt
+*.ckpt
+
+# 訓練 Log 與 Tensorboard
+runs/
+logs/
+*.log
+
+# 預測結果圖或數值
+outputs/
+predictions/
+results/
+submission.csv
+
+# 4. Environment & IDE settings
+# 虛擬環境
+venv/
+env/
+.env
+.venv/
+
+# IDE 設定檔 (VS Code, PyCharm, Jupyter)
+.vscode/
+.idea/
+.ipynb_checkpoints/
+*.ipynb
+
+# 5. Operating System
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Mac
+.DS_Store
