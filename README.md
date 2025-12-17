@@ -239,11 +239,11 @@ python tools/train.py <config> --resume-from <checkpoint_path>
 - **MMSegmentation**: OpenMMLab https://github.com/open-mmlab/mmsegmentation
 - **BCSS 資料集**: Breast Cancer Semantic Segmentation | link: https://www.kaggle.com/datasets/whats2000/breast-cancer-semantic-segmentation-bcss
 
-- Paper
-    [1] U-Net: Convolutional Networks for Biomedical Image Segmentation
-    [2] Encoder-Decoder with Atrous Separable Convolution for Semantic Image Segmentation
-    [3] SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers
-    [4] Enhancing U-Net Segmentation Accuracy Through Comprehensive Data Preprocessing
+### 📚 Paper
+- U-Net: Convolutional Networks for Biomedical Image Segmentation
+- Encoder-Decoder with Atrous Separable Convolution for Semantic Image Segmentation
+- SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers
+- Enhancing U-Net Segmentation Accuracy Through Comprehensive Data Preprocessing
 
 ### 👤 作者
 
