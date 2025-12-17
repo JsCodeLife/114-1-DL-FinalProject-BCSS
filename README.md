@@ -1,22 +1,19 @@
-# 114-1-DL-FinalProject-BCSS
-CE6146 Introduction to Deep Learning
-
-## Analyzing Preprocessing Techniques and Various Models on the BCSS Dataset
+# BCSS Medical Image Segmentation
 
 端到端的組織病理影像分割框架，基於 MMSegmentation，支援多模型、多解析度訓練與評估。
 
-### 📌 概述
+## 📌 概述
 
-本專案針對 **BCSS（Breast Cancer Segmentation）** 資料集進行語意分割，使用 MMSegmentation 框架整合三種深度學習模型：
+此專案針對 **BCSS（Breast Cancer Segmentation）** 資料集進行語意分割，使用 MMSegmentation 框架整合三種深度學習模型：
 - **UNet** - 經典的編碼-解碼架構
 - **DeepLabV3+** - 基於 Atrous Convolution 的多尺度模型
 - **SegFormer** - Vision Transformer 型分割器
 
 支援 **224×224** 與 **512×512** 兩種解析度的訓練與測試。
 
-### 🚀 快速開始
+## 🚀 快速開始
 
-#### 環境設置
+### 環境設置
 
 ```bash
 # 1. 克隆專案
@@ -35,7 +32,7 @@ pip install mmsegmentation
 cd mmsegmentation && pip install -e . && cd ..
 ```
 
-#### 準備資料
+### 準備資料
 
 資料須按照 MMSegmentation 標準格式組織：
 
@@ -63,9 +60,9 @@ data/
 
 若使用預處理資料（推薦），資料在 `data_V2/preprocess_data/` 目錄。
 
-#### 訓練
+### 訓練
 
-##### 方式 1：互動式批次訓練（推薦）
+#### 方式 1：互動式批次訓練（推薦）
 
 ```bash
 python Bcss_auto_run_V2.1.py
@@ -85,7 +82,7 @@ python Bcss_auto_run_V2.1.py
 - 訓練日誌：`work_dirs/<model_name>/`
 - 錯誤日誌：`training_errors/` 或 `training_errors_p/`
 
-##### 方式 2：直接執行 mmseg 命令
+#### 方式 2：直接執行 mmseg 命令
 
 ```bash
 cd mmsegmentation
@@ -102,7 +99,7 @@ bash tools/dist_train.sh \
     --work-dir ../work_dirs/unet_224
 ```
 
-#### 評估與測試
+### 評估與測試
 
 ```bash
 python run_test_evaluation.py
@@ -113,7 +110,7 @@ python run_test_evaluation.py
 - 自動掃描訓練結果
 - 執行測試評估並保存 JSON 結果
 
-#### 可視化
+### 可視化
 
 ```bash
 python visualize_results.py
@@ -124,7 +121,7 @@ python visualize_results.py
 - 指標摘要（`metrics_summary.csv`）
 - 模型推論對比圖（`prediction_results_<image>.png`）
 
-### 📁 專案結構
+## 📁 專案結構
 
 ```
 DLFinal/
@@ -149,34 +146,34 @@ DLFinal/
 └── README.md                        # 本檔案
 ```
 
-### 📊 資料集統計
+## 📊 資料集統計
 
 | 解析度 | 資料集 | 訓練 | 驗證 | 測試 | 檔案大小 |
 |--------|--------|------|------|------|---------|
 | 224×224 | BCSS | 30,760 | 5,150 | 5,150 | ~4.8GB |
 | 512×512 | BCSS_512 | 6,000 | 1,500 | 1,500 | ~5.1GB |
 
-### 🔧 核心腳本說明
+## 🔧 核心腳本說明
 
-#### `Bcss_auto_run_V2.1.py`
+### `Bcss_auto_run_V2.1.py`
 - 批次訓練管理器
 - 支援 v2（原始）與 v2.1（預處理）雙模式
 - 自動路徑覆蓋，無需手動編輯配置
 - 完整日誌與錯誤追蹤
 
-#### `run_test_evaluation.py`
+### `run_test_evaluation.py`
 - 自動掃描訓練結果
 - 執行測試評估（支援 8 卡並行）
 - 解析 mIoU / mDice / aAcc 指標
 - 輸出 JSON 結果與摘要表
 
-#### `visualize_results.py`
+### `visualize_results.py`
 - 繪製訓練曲線
 - 導出指標 CSV
 - 智慧樣本篩選（基於 mask 標籤豐富度與熵）
 - 生成推論對比圖
 
-### 📈 訓練指標
+## 📈 訓練指標
 
 訓練過程中監控的指標：
 - **訓練指標**：Cross Entropy Loss、Dice Loss
@@ -184,7 +181,7 @@ DLFinal/
 
 典型訓練曲線保存在 `metrics_comparison.png`；詳細數據在 `metrics_summary.csv`。
 
-### 🎯 模型配置
+## 🎯 模型配置
 
 所有模型配置在 `mmsegmentation/configs/configs_comparison/`：
 
@@ -201,51 +198,46 @@ DLFinal/
 - `base_224_ds.py` - 224 共用配置
 - `base_512_ds.py` - 512 共用配置
 
-### 📝 資料正規化
+## 📝 資料正規化
 
 使用 BCSS 資料集計算的通道統計值進行正規化。詳見 `data_V2/preprocess_data/normalization_example`。
 
-### 🐛 常見問題
+## 🐛 常見問題
 
-#### GPU 不足
+### GPU 不足
 若機器 < 8 卡，修改：
 - `Bcss_auto_run_V2.1.py` 中的 `dist_train.sh` 參數
 - 或改用 `python tools/train.py` 進行單卡訓練
 
-#### 資料路徑錯誤
+### 資料路徑錯誤
 確認：
 - `data/BCSS_MMSEG_FINAL` 與 `data/BCSS_512_MMSEG_FINAL` 存在
 - 或預處理資料在 `data_V2/preprocess_data/` 下
 
-#### 訓練中斷恢復
+### 訓練中斷恢復
 從最新的 checkpoint 繼續：
 ```bash
 python tools/train.py <config> --resume-from <checkpoint_path>
 ```
 
-#### 如有問題，請檢查：
-1. `training_errors/` 或 `training_errors_p/` 的錯誤日誌
-2. 各模型目錄的 `*_train.log`
-3. 本 README 的常見問題章節
-
-### 📚 相關文檔
+## 📚 相關文檔
 
 - [QUICK_START_TRAINER_V2P.md](QUICK_START_TRAINER_V2P.md) - 訓練快速指南
 - [VISUALIZATION_GUIDE_V2P.md](VISUALIZATION_GUIDE_V2P.md) - 可視化詳細說明
 - [TRAINER_MODIFICATION_SUMMARY.md](TRAINER_MODIFICATION_SUMMARY.md) - 技術細節
 
-### 📜 許可與致謝
+## 📜 許可與致謝
 
 - **MMSegmentation**: OpenMMLab https://github.com/open-mmlab/mmsegmentation
-- **BCSS 資料集**: Breast Cancer Semantic Segmentation | link: https://www.kaggle.com/datasets/whats2000/breast-cancer-semantic-segmentation-bcss
+- **BCSS 資料集**: breast-cancer-semantic-segmentation
 
-### 📚 Paper
-- U-Net: Convolutional Networks for Biomedical Image Segmentation
-- Encoder-Decoder with Atrous Separable Convolution for Semantic Image Segmentation
-- SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers
-- Enhancing U-Net Segmentation Accuracy Through Comprehensive Data Preprocessing
+## 👤 作者
 
-### 👤 作者
+深度學習專案 (2024-2025)
 
-- 國立中央大學 114學年度 第一學期 深度學習介紹-課程小組-第十六組-專案團隊 (2025) 
-- 成員: 康祐典, 蔡善祥, 吳秉宸, 洪翊婕
+## 📞 支援
+
+如有問題，請檢查：
+1. `training_errors/` 或 `training_errors_p/` 的錯誤日誌
+2. 各模型目錄的 `*_train.log`
+3. 本 README 的常見問題章節
