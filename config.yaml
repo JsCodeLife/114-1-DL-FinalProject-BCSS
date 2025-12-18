@@ -1,0 +1,11 @@
+raw_dir: "d:/DL_dataset/simulation_data/raw"
+out_dir: "d:/DL_dataset/simulation_data/processed"
+macenko:
+  iod_threshold: 0.15
+  ref_idx: null
+zscore:
+  sigma_scale: 3.0
+clahe:
+  clip_limit: 2.0
+  tile_grid_size: [8, 8]
+workers: 4
