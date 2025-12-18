@@ -249,3 +249,5 @@ python tools/train.py <config> --resume-from <checkpoint_path>
 
 - 國立中央大學 114學年度 第一學期 深度學習介紹-課程小組-第十六組-專案團隊 (2025) 
 - 成員: 康祐典, 蔡善祥, 吳秉宸, 洪翊婕
+- 課程簡報介紹：https://www.canva.com/design/DAG67ojVSF0/5dj06vKaDra6ereud10Ggg/view?utm_content=DAG67ojVSF0&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=ha36cdeb3be
+  
