@@ -1,4 +1,7 @@
-# BCSS Medical Image Segmentation
+# 114-1-DL-FinalProject-BCSS
+CE6146 Introduction to Deep Learning
+
+## Analyzing Preprocessing Techniques and Various Models on the BCSS Dataset
 
 端到端的組織病理影像分割框架，基於 MMSegmentation，支援多模型、多解析度訓練與評估。
 
@@ -237,6 +240,11 @@ DLFinal/
 python tools/train.py <config> --resume-from <checkpoint_path>
 ```
 
+### 如有問題，請檢查：
+1. `training_errors/` 或 `training_errors_p/` 的錯誤日誌
+2. 各模型目錄的 `*_train.log`
+3. 本 README 的常見問題章節
+
 ## 📚 相關文檔
 
 - [QUICK_START_TRAINER_V2P.md](QUICK_START_TRAINER_V2P.md) - 訓練快速指南
@@ -246,15 +254,16 @@ python tools/train.py <config> --resume-from <checkpoint_path>
 ## 📜 許可與致謝
 
 - **MMSegmentation**: OpenMMLab https://github.com/open-mmlab/mmsegmentation
-- **BCSS 資料集**: breast-cancer-semantic-segmentation
+- **BCSS 資料集**: Breast Cancer Semantic Segmentation | link: https://www.kaggle.com/datasets/whats2000/breast-cancer-semantic-segmentation-bcss
+
+## 📚 Paper
+- U-Net: Convolutional Networks for Biomedical Image Segmentation
+- Encoder-Decoder with Atrous Separable Convolution for Semantic Image Segmentation
+- SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers
+- Enhancing U-Net Segmentation Accuracy Through Comprehensive Data Preprocessing
 
 ## 👤 作者
 
-深度學習專案 (2024-2025)
-
-## 📞 支援
-
-如有問題，請檢查：
-1. `training_errors/` 或 `training_errors_p/` 的錯誤日誌
-2. 各模型目錄的 `*_train.log`
-3. 本 README 的常見問題章節
+- 國立中央大學 114學年度 第一學期 深度學習介紹-課程小組-第十六組-專案團隊 (2025) 
+- 成員: 康祐典, 蔡善祥, 吳秉宸, 洪翊婕
+- 課程簡報介紹：https://www.canva.com/design/DAG67ojVSF0/5dj06vKaDra6ereud10Ggg/view?utm_content=DAG67ojVSF0&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=ha36cdeb3be
