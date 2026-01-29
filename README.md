@@ -219,9 +219,11 @@ DLFinal/
 | `segformer_224_config.py` | SegFormer | 224×224 | 3 |
 | `segformer_512_config.py` | SegFormer | 512×512 | 22 |
 
+<!--
 基礎配置：
 - `base_224_ds.py` - 224 共用配置
 - `base_512_ds.py` - 512 共用配置
+-->
 
 ## 📝 資料正規化
 
