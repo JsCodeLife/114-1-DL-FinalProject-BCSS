@@ -250,11 +250,13 @@ python tools/train.py <config> --resume-from <checkpoint_path>
 2. 各模型目錄的 `*_train.log`
 3. 本 README 的常見問題章節
 
+<!--
 ## 📚 相關文檔
 
 - [QUICK_START_TRAINER_V2P.md](QUICK_START_TRAINER_V2P.md) - 訓練快速指南
 - [VISUALIZATION_GUIDE_V2P.md](VISUALIZATION_GUIDE_V2P.md) - 可視化詳細說明
 - [TRAINER_MODIFICATION_SUMMARY.md](TRAINER_MODIFICATION_SUMMARY.md) - 技術細節
+-->
 
 ## 📜 許可與致謝
 
